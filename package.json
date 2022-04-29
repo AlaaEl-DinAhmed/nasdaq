@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@nrwl/cli": "14.0.5",
-    "@nrwl/cypress": "14.0.5",
+    "@nrwl/cypress": "^14.0.5",
     "@nrwl/eslint-plugin-nx": "14.0.5",
     "@nrwl/express": "14.0.5",
     "@nrwl/jest": "14.0.5",
@@ -30,7 +30,7 @@
     "@nrwl/react": "14.0.5",
     "@nrwl/web": "14.0.5",
     "@nrwl/workspace": "14.0.5",
-    "@testing-library/react": "13.1.1",
+    "@testing-library/react": "^13.1.1",
     "@types/express": "4.17.13",
     "@types/jest": "27.4.1",
     "@types/node": "16.11.7",
