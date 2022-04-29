@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "projects": {
+    "api": "apps/api",
+    "api-interfaces": "libs/api-interfaces",
+    "nasdaq": "apps/nasdaq",
+    "nasdaq-e2e": "apps/nasdaq-e2e"
+  }
+}

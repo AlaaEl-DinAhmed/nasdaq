@@ -1,0 +1,28 @@
+{
+  "root": "apps/nasdaq-e2e",
+  "sourceRoot": "apps/nasdaq-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/nasdaq-e2e/cypress.json",
+        "devServerTarget": "nasdaq:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "nasdaq:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/nasdaq-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["nasdaq"]
+}
