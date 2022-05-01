@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
 import { Message } from '@alaamu/api-interfaces';
+import { useEffect, useState } from 'react';
 
 export const App = () => {
   const [m, setMessage] = useState<Message>({ message: '' });
@@ -11,17 +11,14 @@ export const App = () => {
   }, []);
 
   return (
-    <>
-      <div style={{ textAlign: 'center' }}>
-        <h1>Welcome to nasdaq!</h1>
-        <img
-          width="450"
-          src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
-          alt="Nx - Smart, Fast and Extensible Build System"
-        />
-      </div>
-      <div>{m.message}</div>
-    </>
+    <div style={{ textAlign: 'center' }}>
+      <h1>Welcome to nasdaq!</h1>
+      <img
+        width="450"
+        src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
+        alt="Nx - Smart, Fast and Extensible Build System"
+      />
+    </div>
   );
 };
 
