@@ -17,9 +17,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@alaamu/api-interfaces": ["libs/api-interfaces/src/index.ts"],
-      "@overmind": ["apps/nasdaq/src/app/overmind/index.ts"],
-      "@overmind-stocks": ["apps/nasdaq/src/app/overmind/stocks/index.ts"]
+      "@alaamu/api-interfaces": ["libs/api-interfaces/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

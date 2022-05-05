@@ -1,8 +1,8 @@
-import { overmind } from '@overmind';
 import { Provider } from 'overmind-react';
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import App from './app/app';
+import { overmind } from './app/overmind/index';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
