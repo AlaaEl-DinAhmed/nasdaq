@@ -1,4 +1,4 @@
-export interface Stocks {
-  id: number | null;
-  title: string;
+export interface IStocks {
+  ticker: string;
+  fullName: string;
 }

@@ -1,15 +1,15 @@
-import { Stocks } from '@alaamu/api-interfaces';
+import { IStocks } from '@alaamu/api-interfaces';
 
 export type State = {
   isLoading: boolean;
-  stocks: Stocks[];
-  singleStock: Stocks;
+  stocks: IStocks[];
+  singleStock: IStocks;
 };
 export const state: State = {
   isLoading: false,
   stocks: [],
   singleStock: {
-    id: null,
-    title: '',
+    ticker: '',
+    fullName: '',
   },
 };
