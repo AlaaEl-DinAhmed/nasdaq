@@ -4,6 +4,7 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyles = createGlobalStyle`
     ${normalize()};
     html {
+        font-family: 'Roboto', sans-serif;
         font-size: 16px;
         box-sizing: border-box;
         --color-main-background: #2187E4;
