@@ -8,6 +8,15 @@ export const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
         --color-main-background: #2187E4;
         --color-secondary-background: #2596FE;
-        --padding-start: 2rem
+        --padding-start: 2rem;
+        --color-main-text: #FFF;
+        --size-main-text: 1.75rem;
+        --size-secondary-text: 1.25rem
+    }
+    * {
+        margin: 0;
+    }
+    ul {
+        list-style: none;
     }
 `;

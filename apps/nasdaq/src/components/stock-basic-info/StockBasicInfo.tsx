@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 type StockBasicInfo = {
@@ -6,14 +7,19 @@ type StockBasicInfo = {
 };
 
 const StockBasicInfo = () => {
-  const Wrapper = styled.article``;
-  const H2 = styled.h2``;
-  const P = styled.p``;
+  const H2 = styled.h2`
+    color: var(--color-main-text);
+    font-size: var(--size-main-text);
+  `;
+  const P = styled.p`
+    color: var(--color-main-text);
+    font-size: var(--size-secondary-text);
+  `;
   return (
-    <Wrapper>
-      <H2>Tikcer</H2>
+    <React.Fragment>
+      <H2>Ticker</H2>
       <P>Name</P>
-    </Wrapper>
+    </React.Fragment>
   );
 };
 
