@@ -6,5 +6,8 @@ export const GlobalStyles = createGlobalStyle`
     html {
         font-size: 16px;
         box-sizing: border-box;
+        --color-main-background: #2187E4;
+        --color-secondary-background: #2596FE;
+        --padding-start: 2rem
     }
 `;
