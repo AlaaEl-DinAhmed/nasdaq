@@ -1,5 +1,7 @@
+import Explore from './layouts/explore/Explore';
+
 export const App = () => {
-  return <div></div>;
+  return <Explore />;
 };
 
 export default App;
