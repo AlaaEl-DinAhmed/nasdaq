@@ -12,7 +12,8 @@ export const GlobalStyles = createGlobalStyle`
         --padding-start: 2rem;
         --color-main-text: #FFF;
         --size-main-text: 1.75rem;
-        --size-secondary-text: 1.25rem
+        --size-secondary-text: 1.25rem;
+        --input-border-radius: 4px;
     }
     * {
         margin: 0;
