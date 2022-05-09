@@ -1,17 +1,20 @@
+import { environment } from '../../environments/environment';
+const TICKERS_API =
+  'v3/reference/tickers?limit=75&apiKey=VXgEOdVKqYol4TPCABt1YFJzhZMxPn38';
 export const api = {
-  async getStocksFromServer() {
-    const response = await fetch(
-      'https://api.polygon.io/v3/reference/tickers?limit=90&apiKey=VXgEOdVKqYol4TPCABt1YFJzhZMxPn38',
-      { cache: 'force-cache' }
-    );
+  async getStocks() {
+    const response = await fetch(`${environment.apiBaseUrl}${TICKERS_API}`, {
+      cache: 'force-cache',
+    });
     const data = await response.json();
     return data;
   },
-  async getSingleStockFromServer() {
+
+  async searchStocks(searchParam: string) {
     const response = await fetch(
-      'https://api.polygon.io/v3/reference/tickers?active=true&sort=ticker&order=asc&limit=50&apiKey=VXgEOdVKqYol4TPCABt1YFJzhZMxPn38'
+      `${environment.apiBaseUrl}v3/reference/tickers?search=${searchParam}&apiKey=VXgEOdVKqYol4TPCABt1YFJzhZMxPn38`
     );
     const data = await response.json();
-    return data.results;
+    return data;
   },
 };
