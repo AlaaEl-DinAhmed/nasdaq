@@ -8,6 +8,6 @@ export const getStocks = async ({ state, effects }: Context) => {
 
 export const getSingleStock = async ({ state, effects }: Context) => {
   state.isLoading = true;
-  state.singleStock = await effects.api.getSingleStockFromServer();
+  state.stocks = await effects.api.getSingleStockFromServer();
   state.isLoading = false;
 };

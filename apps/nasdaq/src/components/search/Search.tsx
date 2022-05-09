@@ -4,12 +4,12 @@ const Search = () => {
   const Wrapper = styled.div`
     padding-block-start: 1rem;
     padding-block-end: 1rem;
-    padding-inline-start: var(--padding-start);
+    margin-inline-start: var(--padding-start);
     position: relative;
   `;
   const Span = styled.span`
     position: absolute;
-    left: 47px;
+    left: 7px;
     bottom: 20px;
   `;
   const Image = styled.img`
@@ -19,9 +19,9 @@ const Search = () => {
     background-color: #2f9cfe;
     color: var(--color-main-text);
     padding-block: 0.5rem;
-    padding-inline-start: 2.5rem;
+    padding-inline-start: 1.75rem;
     padding-inline-end: 1rem;
-    border-radius: 4px;
+    border-radius: var(--input-border-radius);
     border: 1px solid transparent;
     line-height: 1;
     ::placeholder {
@@ -32,6 +32,7 @@ const Search = () => {
       border-color: #fff;
     }
   `;
+
   return (
     <Wrapper>
       <Span>

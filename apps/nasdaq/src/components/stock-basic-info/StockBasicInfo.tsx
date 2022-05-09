@@ -6,7 +6,7 @@ type StockBasicInfo = {
   name: string;
 };
 
-const StockBasicInfo = () => {
+const StockBasicInfo: React.FC<StockBasicInfo> = ({ ticker, name }) => {
   const H2 = styled.h2`
     color: var(--color-main-text);
     font-size: var(--size-main-text);
@@ -17,8 +17,8 @@ const StockBasicInfo = () => {
   `;
   return (
     <React.Fragment>
-      <H2>Ticker</H2>
-      <P>Name</P>
+      <H2>{ticker}</H2>
+      <P>{name}</P>
     </React.Fragment>
   );
 };
