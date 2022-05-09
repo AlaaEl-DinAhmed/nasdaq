@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import SearchIcon from '../../assets/icons/icons-search.svg';
+import { useActions } from '../../overmind/stocks';
 const Search = () => {
   const Wrapper = styled.div`
     padding-block-start: 1rem;
@@ -33,6 +34,12 @@ const Search = () => {
     }
   `;
 
+  const { search } = useActions();
+
+  const searchAllStocks = (event: any) => {
+    search(event.target.value);
+  };
+
   return (
     <Wrapper>
       <Span>
@@ -43,6 +50,7 @@ const Search = () => {
         placeholder="Search"
         enterKeyHint="search"
         inputMode="search"
+        onChange={searchAllStocks}
       />
     </Wrapper>
   );

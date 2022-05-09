@@ -21,7 +21,7 @@ const Explore = () => {
     border-block-end: 1px solid #fff;
   `;
   const { stocks } = useAppState();
-  const { getStocks } = useActions();
+  const { getStocks, searchStocks } = useActions();
 
   useEffect(() => {
     getStocks();
