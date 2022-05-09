@@ -1,7 +1,7 @@
 import { Provider } from 'overmind-react';
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
-import App from './app';
+import App from './App';
 import { overmind } from './overmind/index';
 import { GlobalStyles } from './utils';
 
