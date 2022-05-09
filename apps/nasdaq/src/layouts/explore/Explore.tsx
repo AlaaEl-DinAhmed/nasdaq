@@ -18,10 +18,12 @@ const Explore = () => {
   `;
   const Li = styled.li`
     padding-block: 1rem;
-    border-block-end: 1px solid #fff;
+    :not(:last-child) {
+      border-block-end: 1px solid #fff;
+    }
   `;
   const { stocks } = useAppState();
-  const { getStocks, searchStocks } = useActions();
+  const { getStocks } = useActions();
 
   useEffect(() => {
     getStocks();
