@@ -34,10 +34,10 @@ const Search = () => {
     }
   `;
 
-  const { search } = useActions();
+  const { searchStocks } = useActions();
 
   const searchAllStocks = (event: any) => {
-    search(event.target.value);
+    searchStocks(event.target.value);
   };
 
   return (
