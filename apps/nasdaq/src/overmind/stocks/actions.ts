@@ -7,6 +7,17 @@ export const getStocks = async ({ state, effects }: Context): Promise<void> => {
   state.isLoading = false;
 };
 
+export const getMoreStocks = async (
+  { state, effects }: Context,
+  nextUrl: string
+): Promise<void> => {
+  const { results, next_url } = await effects.api.getMoreStocks(nextUrl);
+  state.isLoading = true;
+  state.stocks.results = [...state.stockList, ...results];
+  state.nextUrl = next_url;
+  state.isLoading = false;
+};
+
 export const searchStocks = pipe(
   debounce(500),
   async ({ state, effects }: Context, searchParam: string): Promise<void> => {
