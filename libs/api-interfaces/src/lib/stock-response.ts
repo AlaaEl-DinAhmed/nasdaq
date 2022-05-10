@@ -1,9 +1,7 @@
 export interface IStocksResponse {
   results: Stock[];
-  status: string;
-  request_id: string;
-  count: number;
   next_url: string;
+  status: string;
 }
 
 export interface Stock {

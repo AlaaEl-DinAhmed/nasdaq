@@ -1,5 +1,6 @@
 import { Stock } from '@alaamu/api-interfaces';
 import React, { useEffect } from 'react';
+import InfiniteScroll from 'react-infinite-scroller';
 import styled from 'styled-components';
 import Search from '../../components/search/Search';
 import StockBasicInfo from '../../components/stock-basic-info/StockBasicInfo';
@@ -22,12 +23,16 @@ const Explore = () => {
       border-block-end: 1px solid #fff;
     }
   `;
-  const { stocks } = useAppState();
-  const { getStocks } = useActions();
+  const { stockList, nextUrl } = useAppState();
+  const { getStocks, getMoreStocks } = useActions();
 
   useEffect(() => {
     getStocks();
-  }, []);
+  }, [getStocks]);
+
+  const fetchMoreStocks = () => {
+    getMoreStocks(nextUrl);
+  };
 
   return (
     <React.Fragment>
@@ -36,11 +41,26 @@ const Explore = () => {
       </Header>
       <Main>
         <Ul>
-          {stocks.results.map((stock: Stock, i: number) => (
+          {stockList.map((stock: Stock, i: number) => (
             <Li key={i}>
               <StockBasicInfo {...stock} />
             </Li>
           ))}
+          <InfiniteScroll
+            loadMore={fetchMoreStocks}
+            hasMore={true || false}
+            loader={
+              <div className="loader" key={0}>
+                Loading ...
+              </div>
+            }
+          >
+            {stockList.map((stock: Stock, i: number) => (
+              <Li key={i}>
+                <StockBasicInfo {...stock} />
+              </Li>
+            ))}
+          </InfiniteScroll>
         </Ul>
       </Main>
     </React.Fragment>
