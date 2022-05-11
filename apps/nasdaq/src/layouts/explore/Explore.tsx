@@ -1,6 +1,7 @@
-import { Stock } from '@alaamu/api-interfaces';
+import { IStock } from '@alaamu/api-interfaces';
 import { useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import StockBasicInfo from '../../components/stock-basic-info/StockBasicInfo';
 import { useActions, useAppState } from '../../overmind/stocks';
@@ -20,6 +21,7 @@ const Explore = () => {
       border-block-end: 1px solid #3ca7ff;
     }
   `;
+
   const { stockList, nextUrl } = useAppState();
   const { getStocks, getMoreStocks } = useActions();
 
@@ -43,9 +45,11 @@ const Explore = () => {
             </div>
           }
         >
-          {stockList.map((stock: Stock, i: number) => (
+          {stockList.map((stock: IStock, i: number) => (
             <Li key={i}>
-              <StockBasicInfo {...stock} />
+              <Link to={`/stock-details/${stock.ticker}`}>
+                <StockBasicInfo {...stock} />
+              </Link>
             </Li>
           ))}
         </InfiniteScroll>
