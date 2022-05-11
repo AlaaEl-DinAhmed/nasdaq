@@ -7,7 +7,8 @@ import { useActions, useAppState } from '../../overmind/stocks';
 
 const Explore = () => {
   const Main = styled.main`
-    background-color: var(--color-secondary-background);
+    background-color: var(--color-background);
+    margin-block-start: 82px;
   `;
   const Ul = styled.ul`
     padding-inline-start: var(--padding-start);
@@ -16,7 +17,7 @@ const Explore = () => {
   const Li = styled.li`
     padding-block: 1rem;
     :not(:last-child) {
-      border-block-end: 1px solid #fff;
+      border-block-end: 1px solid #3ca7ff;
     }
   `;
   const { stockList, nextUrl } = useAppState();
