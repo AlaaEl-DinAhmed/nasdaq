@@ -1,4 +1,5 @@
 import { Provider } from 'overmind-react';
+import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import App from './App';
 import { overmind } from './overmind/index';
@@ -9,10 +10,10 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  // <StrictMode>
-  <Provider value={overmind}>
-    <App />
-    <GlobalStyles />
-  </Provider>
-  // </StrictMode>
+  <StrictMode>
+    <Provider value={overmind}>
+      <App />
+      <GlobalStyles />
+    </Provider>
+  </StrictMode>
 );

@@ -14,7 +14,7 @@ export const getMoreStocks = async (
   const { results, next_url } = await effects.api.getMoreStocks(nextUrl);
   state.isLoading = true;
   state.stocks.results = [...state.stockList, ...results];
-  state.nextUrl = next_url;
+  state.stocks.next_url = next_url;
   state.isLoading = false;
 };
 
