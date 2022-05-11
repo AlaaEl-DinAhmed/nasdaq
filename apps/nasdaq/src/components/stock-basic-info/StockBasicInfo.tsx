@@ -8,11 +8,11 @@ type StockBasicInfo = {
 
 const StockBasicInfo: React.FC<StockBasicInfo> = ({ ticker, name }) => {
   const H2 = styled.h2`
-    color: var(--color-main-text);
+    color: var(--color-main);
     font-size: var(--size-main-text);
   `;
   const P = styled.p`
-    color: var(--color-main-text);
+    color: var(--color-main);
     font-size: var(--size-secondary-text);
   `;
   return (
