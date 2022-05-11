@@ -33,11 +33,6 @@ const Explore = () => {
   return (
     <Main>
       <Ul>
-        {stockList.map((stock: Stock, i: number) => (
-          <Li key={i}>
-            <StockBasicInfo {...stock} />
-          </Li>
-        ))}
         <InfiniteScroll
           loadMore={fetchMoreStocks}
           hasMore={true || false}
