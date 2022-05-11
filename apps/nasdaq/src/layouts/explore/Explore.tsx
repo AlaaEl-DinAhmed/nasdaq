@@ -1,15 +1,11 @@
 import { Stock } from '@alaamu/api-interfaces';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 import styled from 'styled-components';
-import Search from '../../components/search/Search';
 import StockBasicInfo from '../../components/stock-basic-info/StockBasicInfo';
 import { useActions, useAppState } from '../../overmind/stocks';
 
 const Explore = () => {
-  const Header = styled.header`
-    background-color: var(--color-main-background);
-  `;
   const Main = styled.main`
     background-color: var(--color-secondary-background);
   `;
@@ -30,40 +26,35 @@ const Explore = () => {
     getStocks();
   }, [getStocks]);
 
-  const fetchMoreStocks = () => {
+  const fetchMoreStocks = (): void => {
     getMoreStocks(nextUrl);
   };
 
   return (
-    <React.Fragment>
-      <Header>
-        <Search />
-      </Header>
-      <Main>
-        <Ul>
+    <Main>
+      <Ul>
+        {stockList.map((stock: Stock, i: number) => (
+          <Li key={i}>
+            <StockBasicInfo {...stock} />
+          </Li>
+        ))}
+        <InfiniteScroll
+          loadMore={fetchMoreStocks}
+          hasMore={true || false}
+          loader={
+            <div className="loader" key={0}>
+              Loading ...
+            </div>
+          }
+        >
           {stockList.map((stock: Stock, i: number) => (
             <Li key={i}>
               <StockBasicInfo {...stock} />
             </Li>
           ))}
-          <InfiniteScroll
-            loadMore={fetchMoreStocks}
-            hasMore={true || false}
-            loader={
-              <div className="loader" key={0}>
-                Loading ...
-              </div>
-            }
-          >
-            {stockList.map((stock: Stock, i: number) => (
-              <Li key={i}>
-                <StockBasicInfo {...stock} />
-              </Li>
-            ))}
-          </InfiniteScroll>
-        </Ul>
-      </Main>
-    </React.Fragment>
+        </InfiniteScroll>
+      </Ul>
+    </Main>
   );
 };
 
