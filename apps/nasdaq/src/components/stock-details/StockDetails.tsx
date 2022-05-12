@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useActions, useAppState } from '../../overmind/stocks';
+import { useActions } from '../../overmind/stocks';
 const StockDetails: React.FC = () => {
   const { id } = useParams() as { id: string };
   const navigate = useNavigate();
 
-  const { singleStockState } = useAppState();
   const { getTickerDetails, getPrevClose } = useActions();
 
   useEffect(() => {
