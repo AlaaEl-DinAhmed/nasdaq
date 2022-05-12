@@ -29,3 +29,12 @@ export const searchStocks = pipe(
     state.stocksState.isLoading = false;
   }
 );
+
+export const getTickerDetails = async (
+  { state, effects }: Context,
+  tickerId: string
+): Promise<void> => {
+  state.singleStockState.isLoading = true;
+  state.singleStockState.stock = await effects.api.getTickerDetails(tickerId);
+  state.singleStockState.isLoading = false;
+};

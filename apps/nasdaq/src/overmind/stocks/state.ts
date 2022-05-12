@@ -10,7 +10,7 @@ type StocksState = {
   nextUrl: string;
 };
 
-type SingleStockState = {
+export type SingleStockState = {
   isLoading: boolean;
   stock: ISingleStockResponse;
   singleStock: ISingleStock;
@@ -26,6 +26,7 @@ const stocksState: StocksState = {
   stockList: derived((state: StocksState) => state.stocks.results),
   nextUrl: derived((state: StocksState) => state.stocks.next_url),
 };
+
 const singleStockState: SingleStockState = {
   isLoading: false,
   stock: {
