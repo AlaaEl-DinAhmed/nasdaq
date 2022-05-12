@@ -3,6 +3,7 @@ import { derived } from 'overmind';
 import { IPrevCloseResponse } from '../../interfaces/prev-close-response.interface';
 import { ISingleStockResponse } from '../../interfaces/stock-details-response.interface';
 import { ISingleStock } from '../../interfaces/stock-details.interface';
+import { IPrevClose } from './../../interfaces/prev-close.interface';
 
 type StocksState = {
   isLoading: boolean;
@@ -20,6 +21,7 @@ type SingleStockState = {
 type PrevCloseState = {
   isLoading: boolean;
   prevClose: IPrevCloseResponse;
+  tickerPrevClose: IPrevClose;
 };
 
 const stocksState: StocksState = {
@@ -43,7 +45,7 @@ const singleStockState: SingleStockState = {
       description: '',
       logo_url: '',
       sic_description: '',
-      website: 'string',
+      website: '',
     },
   },
   singleStock: derived((state: SingleStockState) => state.stock.results),
@@ -54,8 +56,19 @@ const stockPrevCloseState: PrevCloseState = {
   prevClose: {
     status: 'OK',
     resultsCount: 0,
-    results: [],
+    results: [
+      {
+        c: 0,
+        o: 0,
+        h: 0,
+        l: 0,
+        v: 0,
+      },
+    ],
   },
+  tickerPrevClose: derived(
+    (state: PrevCloseState) => state.prevClose.results[0]
+  ),
 };
 
 export const state: {
