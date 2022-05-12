@@ -48,7 +48,9 @@ const Explore = () => {
           {stocksState.stockList.map((stock: IStock, i: number) => (
             <Li key={i}>
               <Link to={`/stock-details/${stock.ticker}`}>
-                <StockBasicInfo {...stock} />
+                <StockBasicInfo {...stock}>
+                  <h2>{stock.ticker}</h2>
+                </StockBasicInfo>
               </Link>
             </Li>
           ))}

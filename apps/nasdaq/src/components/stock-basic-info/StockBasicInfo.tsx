@@ -1,25 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 
-type StockBasicInfo = {
-  ticker: string;
+type StockBasicInfoProps = {
   name: string;
+  children: JSX.Element;
 };
 
-const StockBasicInfo: React.FC<StockBasicInfo> = ({ ticker, name }) => {
-  const H2 = styled.h2`
-    color: var(--color-main);
-    font-size: var(--size-main-text);
-  `;
+const StockBasicInfo: React.FC<StockBasicInfoProps> = ({ name, children }) => {
   const P = styled.p`
     color: var(--color-main);
     font-size: var(--size-secondary-text);
   `;
   return (
-    <React.Fragment>
-      <H2>{ticker}</H2>
+    <>
+      {children}
       <P>{name}</P>
-    </React.Fragment>
+    </>
   );
 };
 
