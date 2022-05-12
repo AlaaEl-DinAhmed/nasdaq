@@ -22,7 +22,7 @@ const Explore = () => {
     }
   `;
 
-  const { stockList, nextUrl } = useAppState();
+  const { stocksState } = useAppState();
   const { getStocks, getMoreStocks } = useActions();
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const Explore = () => {
   }, [getStocks]);
 
   const fetchMoreStocks = (): void => {
-    getMoreStocks(nextUrl);
+    getMoreStocks(stocksState.nextUrl);
   };
 
   return (
@@ -45,7 +45,7 @@ const Explore = () => {
             </div>
           }
         >
-          {stockList.map((stock: IStock, i: number) => (
+          {stocksState.stockList.map((stock: IStock, i: number) => (
             <Li key={i}>
               <Link to={`/stock-details/${stock.ticker}`}>
                 <StockBasicInfo {...stock} />
