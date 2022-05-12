@@ -6,10 +6,11 @@ const StockDetails: React.FC = () => {
   const navigate = useNavigate();
 
   const { singleStockState } = useAppState();
-  const { getTickerDetails } = useActions();
+  const { getTickerDetails, getPrevClose } = useActions();
 
   useEffect(() => {
     getTickerDetails(id);
+    getPrevClose(id);
   });
   return (
     <div>

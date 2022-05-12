@@ -1,6 +1,7 @@
 import { IStocksResponse } from '@alaamu/api-interfaces';
 import { API, AUTH_HEADER } from '../../constants/API';
 import { environment } from '../../environments/environment';
+import { IPrevCloseResponse } from './../../interfaces/prev-close-response.interface';
 import { ISingleStockResponse } from './../../interfaces/stock-details-response.interface';
 export const api = {
   async getStocks(): Promise<IStocksResponse> {
@@ -40,6 +41,18 @@ export const api = {
       }
     );
     const data = (await response.json()) as ISingleStockResponse;
+    return data;
+  },
+
+  async getPrevClose(tickerID: string): Promise<IPrevCloseResponse> {
+    const response = await fetch(
+      `${environment.apiBaseUrl}v2/aggs/ticker/${tickerID}/prev`,
+      {
+        cache: 'force-cache',
+        ...AUTH_HEADER,
+      }
+    );
+    const data = (await response.json()) as IPrevCloseResponse;
     return data;
   },
 };

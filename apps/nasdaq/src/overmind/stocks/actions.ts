@@ -38,3 +38,12 @@ export const getTickerDetails = async (
   state.singleStockState.stock = await effects.api.getTickerDetails(tickerId);
   state.singleStockState.isLoading = false;
 };
+
+export const getPrevClose = async (
+  { state, effects }: Context,
+  tickerId: string
+): Promise<void> => {
+  state.prevCloseState.isLoading = true;
+  state.prevCloseState.prevClose = await effects.api.getPrevClose(tickerId);
+  state.prevCloseState.isLoading = false;
+};
