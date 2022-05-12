@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(
 );
 
 const StockDetails = React.lazy(
-  () => import('./components/stock-details/StockDetails')
+  () => import('./layouts/stock-details/StockDetails')
 );
 
 root.render(
