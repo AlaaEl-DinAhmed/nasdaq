@@ -1,5 +1,6 @@
 import { IStocksResponse, Stock } from '@alaamu/api-interfaces';
 import { derived } from 'overmind';
+import { IPrevCloseResponse } from '../../interfaces/prev-close-response.interface';
 import { ISingleStockResponse } from '../../interfaces/stock-details-response.interface';
 import { ISingleStock } from '../../interfaces/stock-details.interface';
 
@@ -16,6 +17,11 @@ type SingleStockState = {
   singleStock: ISingleStock;
 };
 
+type PrevCloseState = {
+  isLoading: boolean;
+  prevClose: IPrevCloseResponse;
+};
+
 const stocksState: StocksState = {
   isLoading: false,
   stocks: {
@@ -26,6 +32,7 @@ const stocksState: StocksState = {
   stockList: derived((state: StocksState) => state.stocks.results),
   nextUrl: derived((state: StocksState) => state.stocks.next_url),
 };
+
 const singleStockState: SingleStockState = {
   isLoading: false,
   stock: {
@@ -41,14 +48,28 @@ const singleStockState: SingleStockState = {
   },
   singleStock: derived((state: SingleStockState) => state.stock.results),
 };
+
+const stockPrevCloseState: PrevCloseState = {
+  isLoading: false,
+  prevClose: {
+    status: 'OK',
+    resultsCount: 0,
+    results: [],
+  },
+};
+
 export const state: {
   stocksState: StocksState;
   singleStockState: SingleStockState;
+  prevCloseState: PrevCloseState;
 } = {
   stocksState: {
     ...stocksState,
   },
   singleStockState: {
     ...singleStockState,
+  },
+  prevCloseState: {
+    ...stockPrevCloseState,
   },
 };
