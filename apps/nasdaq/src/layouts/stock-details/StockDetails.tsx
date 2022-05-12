@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import AboutTicker from '../../components/about/AboutTicker';
+import PrevClose from '../../components/prev-close/PrevClose';
 import { useActions } from '../../overmind/stocks';
 const StockDetails: React.FC = () => {
   const { id } = useParams() as { id: string };
@@ -13,7 +15,10 @@ const StockDetails: React.FC = () => {
   });
   return (
     <div>
-      <h1>StockDetails Page</h1>
+      {/* // TODO Adding StockBasicInfo props */}
+      {/* <StockBasicInfo/> */}
+      <PrevClose />
+      <AboutTicker />
       <button type="button" onClick={() => navigate('/')}>
         Go back to home page
       </button>
