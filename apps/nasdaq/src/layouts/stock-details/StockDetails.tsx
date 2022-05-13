@@ -1,17 +1,22 @@
 import { useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import AboutTicker from '../../components/about/AboutTicker';
 import Avatar from '../../components/avatar/Avatar';
+import BackButton from '../../components/back-button/BackButton';
 import PrevClose from '../../components/prev-close/PrevClose';
 import StockBasicInfo from '../../components/stock-basic-info/StockBasicInfo';
 import { useActions, useAppState } from '../../overmind/stocks';
-
 const StockDetails = () => {
   const Section = styled.section`
     background-color: var(--color-secondary-background);
     height: 100vh;
     padding-block-start: 2rem;
+  `;
+  const BackToHomeButton = styled.div`
+    position: absolute;
+    left: 2rem;
+    top: 2.5rem;
   `;
   const TickerLogo = styled.div`
     display: flex;
@@ -19,7 +24,7 @@ const StockDetails = () => {
     align-items: center;
     background-color: var(--color-background);
     border-radius: 8px;
-    width: 70px;
+    width: 60px;
     height: 60px;
     margin: auto;
   `;
@@ -43,7 +48,6 @@ const StockDetails = () => {
   `;
 
   const { id } = useParams() as { id: string };
-  const navigate = useNavigate();
 
   const { singleStockState, prevCloseState } = useAppState();
   const { getTickerDetails, getPrevClose } = useActions();
@@ -66,6 +70,9 @@ const StockDetails = () => {
   }, [getTickerDetails, getPrevClose, id]);
   return (
     <Section>
+      <BackToHomeButton>
+        <BackButton />
+      </BackToHomeButton>
       <TickerLogo>
         <Avatar {...avatar} />
       </TickerLogo>
@@ -80,9 +87,6 @@ const StockDetails = () => {
       <StockAbout>
         <AboutTicker {...about} />
       </StockAbout>
-      <button type="button" onClick={() => navigate('/')}>
-        Go back to home page
-      </button>
     </Section>
   );
 };
