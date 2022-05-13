@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import AboutTicker from '../../components/about/AboutTicker';
 import PrevClose from '../../components/prev-close/PrevClose';
 import StockBasicInfo from '../../components/stock-basic-info/StockBasicInfo';
 import { useActions, useAppState } from '../../overmind/stocks';
@@ -15,6 +16,9 @@ const StockDetails = () => {
     padding-block: 1rem;
     padding-inline: var(--padding-start);
   `;
+  const TickerName = styled.h1`
+    color: var(--color-main);
+  `;
   const StockPrevCloseWrapper = styled.article`
     background-color: var(--color-background);
     padding-block: 1rem;
@@ -24,6 +28,7 @@ const StockDetails = () => {
   const StockAbout = styled.article`
     padding-block: 1rem;
     padding-inline: var(--padding-start);
+    position: relative;
   `;
 
   const { id } = useParams() as { id: string };
@@ -31,6 +36,12 @@ const StockDetails = () => {
 
   const { singleStockState, prevCloseState } = useAppState();
   const { getTickerDetails, getPrevClose } = useActions();
+
+  const about = {
+    website: singleStockState.singleStock.homepage_url,
+    description: singleStockState.singleStock.description,
+    industry: singleStockState.singleStock.sic_description,
+  };
 
   useEffect(() => {
     getTickerDetails(id);
@@ -40,16 +51,14 @@ const StockDetails = () => {
     <Section>
       <Span>
         <StockBasicInfo {...singleStockState.singleStock}>
-          <h1>{singleStockState.singleStock.ticker}</h1>
+          <TickerName>{singleStockState.singleStock.ticker}</TickerName>
         </StockBasicInfo>
       </Span>
       <StockPrevCloseWrapper>
         <PrevClose {...prevCloseState.tickerPrevClose} />
       </StockPrevCloseWrapper>
       <StockAbout>
-        {/* // TODO */}
-        {/* Adding About tricker details props */}
-        {/* <AboutTicker /> */}
+        <AboutTicker {...about} />
       </StockAbout>
       <button type="button" onClick={() => navigate('/')}>
         Go back to home page

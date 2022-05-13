@@ -2,36 +2,53 @@ import React from 'react';
 import styled from 'styled-components';
 
 type AboutTickerProps = {
-  link: string;
+  website: string;
   industry: string;
   description: string;
 };
 
 const AboutTicker: React.FC<AboutTickerProps> = ({
-  link,
+  website,
   industry,
   description,
 }) => {
   const H2 = styled.h2`
     color: var(--color-main);
   `;
-  const ViewWebsite = styled.a``;
-  const Title = styled.p``;
-  const Info = styled.p``;
-
+  const IndustryWrapper = styled.div`
+    margin-block: 1rem;
+  `;
+  const ViewWebsite = styled.a`
+    color: #046bd0;
+    font-weight: 700;
+    text-decoration: underline;
+    position: absolute;
+    right: 2rem;
+    top: 1rem;
+  `;
+  const Title = styled.p`
+    color: var(--color-main);
+    font-size: 1.125rem;
+    margin-block-end: 0.25rem;
+  `;
+  const Info = styled.p`
+    color: var(--color-main);
+    font-weight: 700;
+    line-height: 1.5rem;
+  `;
   return (
-    <>
+    <React.Fragment>
       <H2>About</H2>
-      <ViewWebsite href={link}>View Website</ViewWebsite>
-      <div>
-        <div>
-          <Title>Title</Title>
-          <Info>{industry}</Info>
-        </div>
+      <ViewWebsite href={website} target="_blank" rel="noopener">
+        View Website
+      </ViewWebsite>
+      <IndustryWrapper>
         <Title>Title</Title>
-        <Info>{description}</Info>
-      </div>
-    </>
+        <Info>{industry}</Info>
+      </IndustryWrapper>
+      <Title>Title</Title>
+      <Info>{description}</Info>
+    </React.Fragment>
   );
 };
 
