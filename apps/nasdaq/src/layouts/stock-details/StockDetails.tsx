@@ -53,13 +53,13 @@ const StockDetails = () => {
   const { getTickerDetails, getPrevClose } = useActions();
 
   const about = {
-    website: singleStockState.singleStock?.homepage_url,
+    website: singleStockState.singleStock?.website,
     description: singleStockState.singleStock?.description,
-    industry: singleStockState.singleStock?.sic_description,
+    industry: singleStockState.singleStock?.industry,
   };
 
   const avatar = {
-    src: singleStockState.singleStock.branding?.logo_url || '',
+    src: singleStockState.singleStock?.logo_url || '',
     alt: singleStockState.singleStock.ticker,
     width: 80,
     fallback: '../../assets/images/nasdaq-logo.svg',

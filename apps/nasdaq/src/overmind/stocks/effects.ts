@@ -1,7 +1,12 @@
+import { StockDetailsAdapter } from '../../adapters/stock-details.adapter';
 import { StockAdapter } from '../../adapters/stock.adapter';
 import { API, AUTH_HEADER } from '../../constants/API';
 import { environment } from '../../environments/environment';
-import { IStocksResponse } from '../../interfaces/stocks-response';
+import {
+  IStockDetails,
+  IStockDetailsResponse,
+} from '../../interfaces/stock-details.interface';
+import { IStocksResponse, Stock } from '../../interfaces/stocks-response';
 import { IStock, IStocksData } from '../../interfaces/stocks.interface';
 import { IPrevCloseResponse } from './../../interfaces/prev-close-response.interface';
 import { ISingleStockResponse } from './../../interfaces/stock-details-response.interface';
@@ -13,7 +18,9 @@ export const api = {
     });
     const data = (await response.json()) as IStocksResponse;
     const adoptedStocks = new StockAdapter();
-    const adoptedStocksData: IStock[] = adoptedStocks.adaptApi(data.results);
+    const adoptedStocksData: IStock[] = data.results.map((item: Stock) => {
+      return adoptedStocks.adaptApi(item);
+    });
     return {
       ...data,
       results: [...adoptedStocksData],
@@ -26,7 +33,9 @@ export const api = {
     });
     const data = (await response.json()) as IStocksResponse;
     const adoptedStocks = new StockAdapter();
-    const adoptedStocksData: IStock[] = adoptedStocks.adaptApi(data.results);
+    const adoptedStocksData: IStock[] = data.results.map((item: Stock) => {
+      return adoptedStocks.adaptApi(item);
+    });
     return {
       ...data,
       results: [...adoptedStocksData],
@@ -43,14 +52,16 @@ export const api = {
     );
     const data = (await response.json()) as IStocksResponse;
     const adoptedStocks = new StockAdapter();
-    const adoptedStocksData: IStock[] = adoptedStocks.adaptApi(data.results);
+    const adoptedStocksData: IStock[] = data.results.map((item: Stock) => {
+      return adoptedStocks.adaptApi(item);
+    });
     return {
       ...data,
       results: [...adoptedStocksData],
     };
   },
 
-  async getTickerDetails(tickerID: string): Promise<ISingleStockResponse> {
+  async getTickerDetails(tickerID: string): Promise<IStockDetailsResponse> {
     const response = await fetch(
       `${environment.apiBaseUrl}v3/reference/tickers/${tickerID}`,
       {
@@ -59,7 +70,14 @@ export const api = {
       }
     );
     const data = (await response.json()) as ISingleStockResponse;
-    return data;
+    const adoptedStocks = new StockDetailsAdapter();
+    const adoptedStocksData: IStockDetails = adoptedStocks.adaptApi(
+      data.results
+    );
+    return {
+      ...data,
+      results: adoptedStocksData,
+    };
   },
 
   async getPrevClose(tickerID: string): Promise<IPrevCloseResponse> {
