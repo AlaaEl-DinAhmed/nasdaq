@@ -1,9 +1,9 @@
-import { IStock } from '@alaamu/api-interfaces';
 import { useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import StockBasicInfo from '../../components/stock-basic-info/StockBasicInfo';
+import { IStock } from '../../interfaces/stocks.interface';
 import { useActions, useAppState } from '../../overmind/stocks';
 
 const Explore = () => {

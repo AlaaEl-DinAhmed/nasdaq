@@ -1,24 +1,24 @@
-import { IStocksResponse, Stock } from '@alaamu/api-interfaces';
 import { derived } from 'overmind';
 import { IPrevCloseResponse } from '../../interfaces/prev-close-response.interface';
 import { ISingleStockResponse } from '../../interfaces/stock-details-response.interface';
 import { ISingleStock } from '../../interfaces/stock-details.interface';
+import { IStock, IStocksData } from '../../interfaces/stocks.interface';
 import { IPrevClose } from './../../interfaces/prev-close.interface';
 
-type StocksState = {
+export type StocksState = {
   isLoading: boolean;
-  stocks: IStocksResponse;
-  stockList: Stock[];
+  stocks: IStocksData;
+  stockList: IStock[];
   nextUrl: string;
 };
 
-type SingleStockState = {
+export type SingleStockState = {
   isLoading: boolean;
   stock: ISingleStockResponse;
   singleStock: ISingleStock;
 };
 
-type PrevCloseState = {
+export type PrevCloseState = {
   isLoading: boolean;
   prevClose: IPrevCloseResponse;
   tickerPrevClose: IPrevClose;
