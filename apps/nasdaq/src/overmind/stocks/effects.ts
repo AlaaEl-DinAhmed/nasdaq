@@ -1,7 +1,12 @@
+import { PrevCloseAdapter } from '../../adapters/prev-close-adapter';
 import { StockDetailsAdapter } from '../../adapters/stock-details.adapter';
 import { StockAdapter } from '../../adapters/stock.adapter';
 import { API, AUTH_HEADER } from '../../constants/API';
 import { environment } from '../../environments/environment';
+import {
+  IPrevCloseAdapted,
+  IPrevCloseDetails,
+} from '../../interfaces/prev-close.interface';
 import {
   IStockDetails,
   IStockDetailsResponse,
@@ -80,7 +85,7 @@ export const api = {
     };
   },
 
-  async getPrevClose(tickerID: string): Promise<IPrevCloseResponse> {
+  async getPrevClose(tickerID: string): Promise<IPrevCloseAdapted> {
     const response = await fetch(
       `${environment.apiBaseUrl}v2/aggs/ticker/${tickerID}/prev`,
       {
@@ -89,6 +94,13 @@ export const api = {
       }
     );
     const data = (await response.json()) as IPrevCloseResponse;
-    return data;
+    const adoptedStocks = new PrevCloseAdapter();
+    const adoptedStocksData: IPrevCloseDetails = adoptedStocks.adaptApi(
+      data.results[0]
+    );
+    return {
+      ...data,
+      results: adoptedStocksData,
+    };
   },
 };
