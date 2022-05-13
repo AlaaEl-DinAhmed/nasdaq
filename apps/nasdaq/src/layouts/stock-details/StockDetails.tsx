@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import AboutTicker from '../../components/about/AboutTicker';
 import PrevClose from '../../components/prev-close/PrevClose';
 import StockBasicInfo from '../../components/stock-basic-info/StockBasicInfo';
 import { useActions, useAppState } from '../../overmind/stocks';
@@ -48,7 +47,9 @@ const StockDetails = () => {
         <PrevClose {...prevCloseState.tickerPrevClose} />
       </StockPrevCloseWrapper>
       <StockAbout>
-        <AboutTicker />
+        {/* // TODO */}
+        {/* Adding About tricker details props */}
+        {/* <AboutTicker /> */}
       </StockAbout>
       <button type="button" onClick={() => navigate('/')}>
         Go back to home page
