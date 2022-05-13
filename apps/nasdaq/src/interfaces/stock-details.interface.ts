@@ -4,5 +4,5 @@ export interface ISingleStock {
   description: string;
   logo_url: string;
   sic_description: string;
-  website: string;
+  homepage_url: string;
 }

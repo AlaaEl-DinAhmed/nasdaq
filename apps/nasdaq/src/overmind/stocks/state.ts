@@ -45,7 +45,7 @@ const singleStockState: SingleStockState = {
       description: '',
       logo_url: '',
       sic_description: '',
-      website: '',
+      homepage_url: '',
     },
   },
   singleStock: derived((state: SingleStockState) => state.stock.results),
