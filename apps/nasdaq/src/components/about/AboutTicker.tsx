@@ -14,12 +14,13 @@ const AboutTicker: React.FC<AboutTickerProps> = ({
 }) => {
   const H2 = styled.h2`
     color: var(--color-main);
+    margin-block-end: 1rem;
   `;
   const IndustryWrapper = styled.div`
-    margin-block: 1rem;
+    margin-block-end: 1rem;
   `;
   const ViewWebsite = styled.a`
-    color: #046bd0;
+    color: var(--color-main);
     font-weight: 700;
     text-decoration: underline;
     position: absolute;
@@ -43,10 +44,10 @@ const AboutTicker: React.FC<AboutTickerProps> = ({
         View Website
       </ViewWebsite>
       <IndustryWrapper>
-        <Title>Title</Title>
+        <Title>Industry</Title>
         <Info>{industry}</Info>
       </IndustryWrapper>
-      <Title>Title</Title>
+      <Title>Description</Title>
       <Info>{description}</Info>
     </React.Fragment>
   );

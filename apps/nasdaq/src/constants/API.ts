@@ -3,8 +3,10 @@ export const API = {
   searchTickers: 'v3/reference/tickers?search=',
 };
 
+export const API_KEY = 'VXgEOdVKqYol4TPCABt1YFJzhZMxPn38';
+
 export const AUTH_HEADER = {
   headers: {
-    Authorization: 'Bearer VXgEOdVKqYol4TPCABt1YFJzhZMxPn38',
+    Authorization: `Bearer ${API_KEY}`,
   },
 };

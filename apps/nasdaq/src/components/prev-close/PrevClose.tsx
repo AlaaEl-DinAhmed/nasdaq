@@ -4,6 +4,7 @@ import { IPrevClose } from '../../interfaces/prev-close.interface';
 const PrevClose: React.FC<IPrevClose> = ({ o, c, v, h, l }) => {
   const H2 = styled.h2`
     color: var(--color-main);
+    margin-block-end: 1rem;
   `;
 
   const StatisticsWrapper = styled.div`

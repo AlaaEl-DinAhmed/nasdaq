@@ -43,7 +43,9 @@ const singleStockState: SingleStockState = {
       ticker: '',
       name: '',
       description: '',
-      logo_url: '',
+      branding: {
+        logo_url: '',
+      },
       sic_description: '',
       homepage_url: '',
     },
