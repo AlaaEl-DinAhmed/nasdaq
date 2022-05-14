@@ -1,4 +1,8 @@
-import styled from 'styled-components';
+import H2 from '../../styled-components/prev-close-card/Heading';
+import StatisticsContent from '../../styled-components/prev-close-card/Static-Heading';
+import StatisticsTitle from '../../styled-components/prev-close-card/StatisticsTitle';
+import StatisticsWrapper from '../../styled-components/prev-close-card/StatisticsWrapper';
+import StatisticsValue from '../../styled-components/prev-close-card/StatisticValue';
 
 type PrevCloseProps = {
   close: number;
@@ -15,36 +19,6 @@ const PrevClose: React.FC<PrevCloseProps> = ({
   high,
   low,
 }) => {
-  const H2 = styled.h2`
-    color: var(--color-main);
-    margin-block-end: 1rem;
-  `;
-
-  const StatisticsWrapper = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-  `;
-  const StatisticsContent = styled(StatisticsWrapper)`
-    flex-basis: 30%;
-    flex-grow: 1;
-
-    :last-child {
-      flex-grow: 11;
-    }
-    :not(:nth-last-child(-1n + 2)) {
-      margin-block-end: 1rem;
-    }
-  `;
-  const StatisticsTitle = styled.p`
-    color: var(--color-main);
-    font-size: 1.25rem;
-    width: 100%;
-  `;
-  const StatisticsValue = styled.span`
-    color: var(--color-main);
-    font-size: 2rem;
-    font-weight: 700;
-  `;
   return (
     <>
       <H2>Statistics</H2>

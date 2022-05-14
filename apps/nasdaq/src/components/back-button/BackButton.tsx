@@ -1,13 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
+import Button from '../../styled-components/BackButton';
 
 const BackButton = () => {
-  const Button = styled.button`
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-  `;
   const navigate = useNavigate();
 
   return (
