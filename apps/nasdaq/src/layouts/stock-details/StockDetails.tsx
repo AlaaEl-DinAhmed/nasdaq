@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import styled from 'styled-components';
 import AboutTicker from '../../components/about/AboutTicker';
 import Avatar from '../../components/avatar/Avatar';
 import BackButton from '../../components/back-button/BackButton';
@@ -9,46 +8,15 @@ import PrevClose from '../../components/prev-close/PrevClose';
 import StockBasicInfo from '../../components/stock-basic-info/StockBasicInfo';
 import { Status } from '../../interfaces/status-api';
 import { useActions, useAppState } from '../../overmind/stocks';
-const StockDetails = () => {
-  const Section = styled.section`
-    background-color: var(--color-secondary-background);
-    height: 100vh;
-    padding-block-start: 2rem;
-  `;
-  const BackToHomeButton = styled.div`
-    position: absolute;
-    left: 2rem;
-    top: 2.5rem;
-  `;
-  const TickerLogo = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--color-background);
-    border-radius: 8px;
-    width: 60px;
-    height: 60px;
-    margin: auto;
-  `;
-  const Span = styled.span`
-    display: block;
-    padding-block: 1rem;
-    padding-inline: var(--padding-start);
-  `;
-  const TickerName = styled.h1`
-    color: var(--color-main);
-  `;
-  const StockPrevCloseWrapper = styled.article`
-    background-color: var(--color-background);
-    padding-block: 1rem;
-    padding-inline: var(--padding-start);
-  `;
-  const StockAbout = styled.article`
-    padding-block: 1rem;
-    padding-inline: var(--padding-start);
-    position: relative;
-  `;
+import BackToHomeButtonWrapper from '../../styled-components/BackToHomeButtonWrapper';
+import StockAbout from '../../styled-components/StockArticleWrapper';
+import StockDetailsHeadingWrapper from '../../styled-components/StockDetailsHeadingWrapper';
+import StockDetailsSections from '../../styled-components/StockDetailsSections';
+import StockPrevCloseWrapper from '../../styled-components/StockPrevCloseWrapper';
+import TickerLogo from '../../styled-components/TickerLogo';
+import TickerName from '../../styled-components/TickerName';
 
+const StockDetails = () => {
   const { id } = useParams() as { id: string };
   const { singleStockState, prevCloseState } = useAppState();
   const { getTickerDetails, getPrevClose } = useActions();
@@ -71,25 +39,25 @@ const StockDetails = () => {
   }, [getTickerDetails, getPrevClose, id]);
 
   const content = (
-    <Section>
-      <BackToHomeButton>
+    <StockDetailsSections>
+      <BackToHomeButtonWrapper>
         <BackButton />
-      </BackToHomeButton>
+      </BackToHomeButtonWrapper>
       <TickerLogo>
         <Avatar {...avatar} />
       </TickerLogo>
-      <Span>
+      <StockDetailsHeadingWrapper>
         <StockBasicInfo {...singleStockState.singleStock}>
           <TickerName>{singleStockState.singleStock.ticker}</TickerName>
         </StockBasicInfo>
-      </Span>
+      </StockDetailsHeadingWrapper>
       <StockPrevCloseWrapper>
         <PrevClose {...prevCloseState.tickerPrevClose} />
       </StockPrevCloseWrapper>
       <StockAbout>
         <AboutTicker {...about} />
       </StockAbout>
-    </Section>
+    </StockDetailsSections>
   );
 
   const noStockData = <NotFound />;

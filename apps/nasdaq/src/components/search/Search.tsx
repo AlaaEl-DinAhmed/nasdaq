@@ -1,5 +1,5 @@
 import { useActions } from '../../overmind/stocks';
-import SearchInput from '../../styled-components/search/Search';
+import SearchInput from '../../styled-components/Search';
 const Search = () => {
   const { searchStocks } = useActions();
 

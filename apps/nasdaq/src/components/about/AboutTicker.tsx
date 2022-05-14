@@ -1,5 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
+import H2 from '../../styled-components/prev-close-card/Heading';
+import Info from './IndustryInfo';
+import Title from './IndustryTitle';
+import IndustryWrapper from './IndustryWrapper';
+import ViewWebsite from './ViewWebsiteLink';
 
 type AboutTickerProps = {
   website: string;
@@ -12,31 +16,6 @@ const AboutTicker: React.FC<AboutTickerProps> = ({
   industry,
   description,
 }) => {
-  const H2 = styled.h2`
-    color: var(--color-main);
-    margin-block-end: 1rem;
-  `;
-  const IndustryWrapper = styled.div`
-    margin-block-end: 1rem;
-  `;
-  const ViewWebsite = styled.a`
-    color: var(--color-main);
-    font-weight: 700;
-    text-decoration: underline;
-    position: absolute;
-    right: 2rem;
-    top: 1rem;
-  `;
-  const Title = styled.p`
-    color: var(--color-main);
-    font-size: 1.125rem;
-    margin-block-end: 0.25rem;
-  `;
-  const Info = styled.p`
-    color: var(--color-main);
-    font-weight: 700;
-    line-height: 1.5rem;
-  `;
   return (
     <React.Fragment>
       <H2>About</H2>

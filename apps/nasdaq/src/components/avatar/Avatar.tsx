@@ -1,6 +1,6 @@
 import React from 'react';
 import { API_KEY } from '../../constants/API';
-import Image from './Image';
+import Image from '../../styled-components/Image';
 
 type Avatar = {
   src: string;
