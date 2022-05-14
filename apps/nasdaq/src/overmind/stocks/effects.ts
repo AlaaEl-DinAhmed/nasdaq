@@ -67,7 +67,6 @@ export const api = {
     const response = await fetch(
       `${environment.apiBaseUrl}${API.search}${searchParam}`,
       {
-        cache: 'force-cache',
         ...AUTH_HEADER,
       }
     );

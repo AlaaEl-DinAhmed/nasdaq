@@ -16,7 +16,6 @@ const StockDetails = React.lazy(
 const NotFound = React.lazy(() => import('./components/not-found/NotFound'));
 
 root.render(
-  // <StrictMode>
   <Provider value={overmind}>
     <BrowserRouter>
       <Routes>
@@ -41,5 +40,4 @@ root.render(
     </BrowserRouter>
     <GlobalStyles />
   </Provider>
-  // </StrictMode>
 );
