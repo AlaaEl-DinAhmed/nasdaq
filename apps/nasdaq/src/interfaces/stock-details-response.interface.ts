@@ -1,5 +1,7 @@
+import { Status } from './status-api';
+
 export interface ISingleStockResponse {
-  status: 'OK' | 'NOT_FOUND';
+  status: Status;
   results: ISingleStock;
 }
 

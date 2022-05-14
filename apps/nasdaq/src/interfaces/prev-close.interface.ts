@@ -1,5 +1,7 @@
+import { Status } from './status-api';
+
 export interface IPrevCloseAdapted {
-  status: 'OK';
+  status: Status;
   resultsCount: number;
   results: IPrevCloseDetails;
 }

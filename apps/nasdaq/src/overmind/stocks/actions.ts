@@ -11,13 +11,16 @@ export const getMoreStocks = async (
   { state, effects }: Context,
   nextUrl: string
 ): Promise<void> => {
-  const { results, next_url } = await effects.api.getMoreStocks(nextUrl);
+  const { results, next_url, status } = await effects.api.getMoreStocks(
+    nextUrl
+  );
   state.stocksState.isLoading = true;
   state.stocksState.stocks.results = [
     ...state.stocksState.stockList,
     ...results,
   ];
   state.stocksState.stocks.next_url = next_url;
+  state.stocksState.stocks.status = status;
   state.stocksState.isLoading = false;
 };
 

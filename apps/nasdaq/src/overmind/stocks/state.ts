@@ -1,4 +1,5 @@
 import { derived } from 'overmind';
+import { Status } from '../../interfaces/status-api';
 import {
   IStockDetails,
   IStockDetailsResponse,
@@ -42,7 +43,7 @@ const stocksState: StocksState = {
 const singleStockState: SingleStockState = {
   isLoading: false,
   stock: {
-    status: 'OK',
+    status: Status.ok,
     results: {
       ticker: '',
       name: '',
@@ -58,7 +59,7 @@ const singleStockState: SingleStockState = {
 const stockPrevCloseState: PrevCloseState = {
   isLoading: false,
   prevClose: {
-    status: 'OK',
+    status: Status.ok,
     resultsCount: 0,
     results: {
       close: 0,
