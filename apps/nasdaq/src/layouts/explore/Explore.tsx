@@ -45,7 +45,7 @@ const Explore = () => {
             </div>
           }
         >
-          {stocksState.stockList.map((stock: IStock, i: number) => (
+          {stocksState.stockList?.map((stock: IStock, i: number) => (
             <Li key={i}>
               <Link to={`/stock-details/${stock.ticker}`}>
                 <StockBasicInfo {...stock}>
@@ -54,6 +54,9 @@ const Explore = () => {
               </Link>
             </Li>
           ))}
+          {stocksState.stocks.status === 'ERROR' && (
+            <p>Error occurred please refresh the page.</p>
+          )}
         </InfiniteScroll>
       </Ul>
     </Main>

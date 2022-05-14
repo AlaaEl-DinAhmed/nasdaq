@@ -9,10 +9,10 @@ export class StockDetailsAdapter
     return new StockDetailsModel(
       response.ticker,
       response.name,
-      response.description,
-      response.branding.logo_url,
-      response.sic_description,
-      response.homepage_url
+      response.description || 'No data available',
+      response.branding?.logo_url || '',
+      response.sic_description || 'No data available',
+      response.homepage_url || 'No data available'
     );
   }
 }

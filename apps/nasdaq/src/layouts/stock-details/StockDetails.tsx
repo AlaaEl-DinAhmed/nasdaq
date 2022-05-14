@@ -4,8 +4,10 @@ import styled from 'styled-components';
 import AboutTicker from '../../components/about/AboutTicker';
 import Avatar from '../../components/avatar/Avatar';
 import BackButton from '../../components/back-button/BackButton';
+import NotFound from '../../components/not-found/NotFound';
 import PrevClose from '../../components/prev-close/PrevClose';
 import StockBasicInfo from '../../components/stock-basic-info/StockBasicInfo';
+import { Status } from '../../interfaces/status-api';
 import { useActions, useAppState } from '../../overmind/stocks';
 const StockDetails = () => {
   const Section = styled.section`
@@ -48,7 +50,6 @@ const StockDetails = () => {
   `;
 
   const { id } = useParams() as { id: string };
-
   const { singleStockState, prevCloseState } = useAppState();
   const { getTickerDetails, getPrevClose } = useActions();
 
@@ -68,7 +69,8 @@ const StockDetails = () => {
     getTickerDetails(id);
     getPrevClose(id);
   }, [getTickerDetails, getPrevClose, id]);
-  return (
+
+  const content = (
     <Section>
       <BackToHomeButton>
         <BackButton />
@@ -89,6 +91,11 @@ const StockDetails = () => {
       </StockAbout>
     </Section>
   );
+
+  const noStockData = <NotFound />;
+  return {
+    ...(singleStockState.stock.status === Status.fails ? noStockData : content),
+  };
 };
 
 export default StockDetails;
