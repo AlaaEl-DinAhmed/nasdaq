@@ -25,3 +25,7 @@ Run `nx build nasdaq` to build the project. The build artifacts will be stored i
 5. Adding integrations tests.
 6. Adding Github actions CI/CD.
 7. Adding deployment to a production environment.
+
+## For more info and task
+
+Navigate to [Project dashboard](https://github.com/users/AlaaEl-DinAhmed/projects/1)
