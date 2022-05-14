@@ -4,7 +4,7 @@
 
 Install all needed packages `npm i` then run `nx serve nasdaq` for a dev server. Navigate to <http://localhost:4200>
 
-## Running end-to-end tests
+## Running unit tests
 
 Run `nx test nasdaq --watch`.
 
