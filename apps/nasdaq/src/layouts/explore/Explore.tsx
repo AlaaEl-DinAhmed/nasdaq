@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-// import InfiniteScroll from 'react-infinite-scroller';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -23,6 +22,12 @@ const Explore = () => {
     :not(:last-child) {
       border-block-end: 1px solid #3ca7ff;
     }
+  `;
+  const NoResultsFound = styled.p`
+    text-align: center;
+    color: var(--color-main);
+    font-size: 2rem;
+    margin-block-start: 1rem;
   `;
 
   const { stocksState } = useAppState();
@@ -58,6 +63,10 @@ const Explore = () => {
             <Alert message="Error occurred please refresh the page."></Alert>
           )}
         </InfiniteScroll>
+        {stocksState.stockList.length === 0 &&
+          stocksState.stocks.status === 'OK' && (
+            <NoResultsFound>No results found</NoResultsFound>
+          )}
       </Ul>
     </Main>
   );
