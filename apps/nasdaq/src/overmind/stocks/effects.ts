@@ -20,7 +20,6 @@ import { ISingleStockResponse } from './../../interfaces/stock-details-response.
 export const api = {
   async getStocks(): Promise<IStocksData> {
     const response = await fetch(`${environment.apiBaseUrl}${API.ticker}`, {
-      cache: 'force-cache',
       ...AUTH_HEADER,
     });
     const data = (await response.json()) as IStocksResponse;
@@ -46,7 +45,6 @@ export const api = {
     nextUrl: string
   ): Promise<IStocksData | { results: []; next_url: string; status: 'ERROR' }> {
     const response = await fetch(`${nextUrl}`, {
-      cache: 'force-cache',
       ...AUTH_HEADER,
     });
     const data = (await response.json()) as IStocksResponse;
