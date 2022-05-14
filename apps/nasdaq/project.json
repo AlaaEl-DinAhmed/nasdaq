@@ -15,7 +15,7 @@
         "main": "apps/nasdaq/src/main.tsx",
         "polyfills": "apps/nasdaq/src/polyfills.ts",
         "tsConfig": "apps/nasdaq/tsconfig.app.json",
-        "assets": ["apps/nasdaq/src/favicon.ico", "apps/nasdaq/src/assets"],
+        "assets": ["apps/nasdaq/src/assets"],
         "styles": [],
         "scripts": [],
         "webpackConfig": "@nrwl/react/plugins/webpack"
