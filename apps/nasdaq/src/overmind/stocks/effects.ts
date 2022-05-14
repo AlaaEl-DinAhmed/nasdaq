@@ -147,9 +147,9 @@ export const api = {
         resultsCount: 0,
         results: {
           close: 0,
-          open: 0,
           high: 0,
           low: 0,
+          open: 0,
           volume: 0,
         },
       };
