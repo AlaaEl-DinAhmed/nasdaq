@@ -23,6 +23,9 @@ const Explore = () => {
       border-block-end: 1px solid #3ca7ff;
     }
   `;
+  const TickerTitle = styled.h2`
+    color: var(--color-main);
+  `;
   const NoResultsFound = styled.p`
     text-align: center;
     color: var(--color-main);
@@ -54,7 +57,7 @@ const Explore = () => {
             <Li key={i}>
               <Link to={`/stock-details/${stock.ticker}`}>
                 <StockBasicInfo {...stock}>
-                  <h2>{stock.ticker}</h2>
+                  <TickerTitle>{stock.ticker}</TickerTitle>
                 </StockBasicInfo>
               </Link>
             </Li>
