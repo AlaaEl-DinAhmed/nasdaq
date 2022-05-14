@@ -3,6 +3,7 @@ import { StockDetailsAdapter } from '../../adapters/stock-details.adapter';
 import { StockAdapter } from '../../adapters/stock.adapter';
 import { API, AUTH_HEADER } from '../../constants/API';
 import { environment } from '../../environments/environment';
+import { IStocksResponse } from '../../interfaces/IStocksResponse';
 import {
   IPrevCloseAdapted,
   IPrevCloseDetails,
@@ -12,7 +13,7 @@ import {
   IStockDetails,
   IStockDetailsResponse,
 } from '../../interfaces/stock-details.interface';
-import { IStocksResponse, Stock } from '../../interfaces/stocks-response';
+import { Stock } from '../../interfaces/stocks-response';
 import { IStock, IStocksData } from '../../interfaces/stocks.interface';
 import { IPrevCloseResponse } from './../../interfaces/prev-close-response.interface';
 import { ISingleStockResponse } from './../../interfaces/stock-details-response.interface';
